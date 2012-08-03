@@ -4,6 +4,6 @@
 [submodule "assets/js/text"]
 	path = assets/js/text
 	url = git://github.com/requirejs/text.git
-[submodule "assets/js/mustash"]
-	path = assets/js/mustash
+[submodule "assets/js/mustache"]
+	path = assets/js/mustache
 	url = git://github.com/janl/mustache.js.git

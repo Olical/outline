@@ -1,13 +1,14 @@
 requirejs.config({
     paths: {
         'mootools-core': 'https://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed',
-        'text': 'text/text'
+        'text': 'text/text',
+        'mustache': 'mustache/mustache'
     }
 });
 
 require([
     'CSSGrid',
-    'text!/assets/templates/grid.mustash',
+    'text!/assets/templates/grid.mustache',
     'mootools-core'
 ], function(CSSGrid, gridTemplate) {
     /**

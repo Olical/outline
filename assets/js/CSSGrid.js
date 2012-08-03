@@ -1,7 +1,8 @@
 define([
     'Class',
+    'mustache',
     'mootools-core'
-], function(Class) {
+], function(Class, mustache) {
     // Initialise the class
     // Implements MooTools' Options class
     var CSSGrid = new Class(Options);
