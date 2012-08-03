@@ -1,12 +1,14 @@
 requirejs.config({
     paths: {
-        'mootools-core': 'https://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed'
+        'mootools-core': 'https://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed',
+        'text': 'text/text'
     }
 });
 
 require([
+    'text!/assets/templates/grid.mustash',
     'mootools-core'
-], function() {
+], function(gridTemplate) {
     /**
      * Entry point for the application
      * Executed when the DOM is ready
