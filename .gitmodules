@@ -1,0 +1,3 @@
+[submodule "assets/js/requirejs"]
+	path = assets/js/requirejs
+	url = git://github.com/jrburke/requirejs.git
