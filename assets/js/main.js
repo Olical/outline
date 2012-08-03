@@ -6,9 +6,10 @@ requirejs.config({
 });
 
 require([
+    'CSSGrid',
     'text!/assets/templates/grid.mustash',
     'mootools-core'
-], function(gridTemplate) {
+], function(CSSGrid, gridTemplate) {
     /**
      * Entry point for the application
      * Executed when the DOM is ready
