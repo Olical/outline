@@ -22,7 +22,8 @@ require([
                 width: $('width'),
                 columns: $('columns'),
                 margin: $('margin'),
-                output: $('output')
+                output: $('output'),
+                generate: $('generate')
             },
             grid = new CSSGrid(),
             config = {};
@@ -50,6 +51,9 @@ require([
             // Stop the form actually submitting
             return false;
         });
+
+        // Now everything has loaded the form can be enabled
+        elements.generate.erase('disabled');
     }
 
     // Add a listener for the DOM ready event
