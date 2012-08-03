@@ -5,8 +5,7 @@ requirejs.config({
 });
 
 require([
-    'Class',
     'mootools-core'
-], function(Class) {
+], function() {
 
 });
