@@ -31,7 +31,7 @@ define([
      * @returns {String} Your finished CSS grid
      */
     CSSGrid.fn.render = function() {
-        
+        return '...';
     };
 
     // Return the finished class
