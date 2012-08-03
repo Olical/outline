@@ -34,7 +34,11 @@ define([
      * @returns {String} Your finished CSS grid
      */
     CSSGrid.fn.render = function(template) {
-        return mustache.render(template);
+        // Initialise the variables
+        var view = {};
+
+        // Return the render
+        return mustache.render(template, view);
     };
 
     // Return the finished class
