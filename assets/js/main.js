@@ -9,7 +9,8 @@ requirejs.config({
 require([
     'CSSGrid',
     'text!/assets/templates/grid.mustache',
-    'mootools-core'
+    'mootools-core',
+    'prism'
 ], function(CSSGrid, gridTemplate) {
     /**
      * Entry point for the application
@@ -43,6 +44,9 @@ require([
 
                 // Render the CSS into the output
                 elements.output.set('text', grid.render(gridTemplate));
+
+                // Highlight the code
+                Prism.highlightElement(elements.output);
             }
             else {
                 alert('Please specify a number in each input.');
