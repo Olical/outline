@@ -28,11 +28,13 @@ define([
 
     /**
      * Renders the CSS grid using the current options
+     * You must pass it a template string to render with
      * 
+     * @param {String} template The mustache template to render with
      * @returns {String} Your finished CSS grid
      */
-    CSSGrid.fn.render = function() {
-        return '...';
+    CSSGrid.fn.render = function(template) {
+        return mustache.render(template);
     };
 
     // Return the finished class

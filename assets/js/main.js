@@ -41,7 +41,7 @@ require([
                 grid.setOptions(config);
 
                 // Render the CSS into the output
-                elements.output.set('text', grid.render());
+                elements.output.set('text', grid.render(gridTemplate));
             }
             else {
                 alert('Please specify a number in each input.');
