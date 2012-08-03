@@ -35,7 +35,48 @@ define([
      */
     CSSGrid.fn.render = function(template) {
         // Initialise the variables
-        var view = {};
+        var opts = this.options,
+            usableWidth = opts.width - (opts.margin * (opts.columns - 1)),
+            columnWidth = usableWidth / opts.columns,
+            fullColumnWidth = columnWidth + opts.margin,
+            view = {
+                width: opts.width + 'px',
+                columns: opts.columns,
+                margin: opts.margin + 'px',
+                spans: [],
+                prefixes: [],
+                suffixes: []
+            },
+            i;
+
+        // Loop over all of the columns
+        for(i = 1; i <= opts.columns; i += 1) {
+            // Generate spans
+            view.spans.push({
+                cssClass: '.span-' + i,
+                width: columnWidth + fullColumnWidth * (i - 1) + 'px',
+                separator: i < opts.columns ? ',\n' : ''
+            });
+
+            // Generate prefixes and suffixes
+            // This one has to be less than the column count
+            if(i < opts.columns) {
+                var padding = fullColumnWidth * i + 'px';
+
+                view.prefixes.push({
+                    cssClass: '.prefix-' + i,
+                    padding: padding
+                });
+
+                view.suffixes.push({
+                    cssClass: '.suffix-' + i,
+                    padding: padding
+                });
+            }
+        }
+
+        // Set the last span
+        view.lastSpan = view.spans[opts.columns - 1];
 
         // Return the render
         return mustache.render(template, view);

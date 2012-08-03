@@ -1,0 +1,41 @@
+/*
+    Width: {{ width }}
+    Columns: {{ columns }}
+    Margin: {{ margin }}
+*/
+
+{{# spans }}
+{{ cssClass }}{{ separator }}{{/ spans }} {
+    margin-right: {{ margin }};
+    float: left;
+    display: inline;
+}
+
+{{# spans }}
+{{ cssClass }} { width: {{ width }}; }
+{{/ spans }}
+
+{{# prefixes }}
+{{ cssClass }} { padding-left: {{ padding }}; }
+{{/ prefixes}}
+
+{{# suffixes }}
+{{ cssClass }} { padding-right: {{ padding }}; }
+{{/ suffixes}}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: {{ width }};
+}
+
+.last, {{ lastSpan.cssClass }} {
+    margin-right: 0;
+}
+
+.row {
+    clear: both;
+    display: block;
+    float: left;
+    width: 100%;
+}
