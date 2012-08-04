@@ -23,7 +23,9 @@ require([
         template = dust.compileFn(templateSource),
         config = {},
         elements,
-        download;
+        download,
+        hash,
+        loc;
 
     /**
      * Entry point for the application
@@ -39,13 +41,16 @@ require([
             output: $('output'),
             generate: $('generate'),
             download: $('download'),
-            placeholder: $('placeholder')
+            placeholder: $('placeholder'),
+            share: $('share')
         };
 
         // Listen for when the form is submitted
         elements.form.addEvent('submit', function(e) {
             // Stop the form actually submitting
-            e.stop();
+            if(e) {
+                e.stop();
+            }
 
             // Extract the data
             config.width = elements.width.get('value').toInt();
@@ -75,6 +80,13 @@ require([
                     // Prepare the download and show the link
                     elements.download.set('href', 'data:text/css;charset=utf-8;base64,' + btoa(css));
                     elements.download.removeClass('hidden');
+
+                    // Set the hash
+                    window.location.hash = config.width + ',' + config.columns + ',' + config.margin;
+
+                    // And set the share URL
+                    loc = document.location;
+                    elements.share.set('href', loc).set('text', loc);
                 });
             }
             else {
@@ -84,6 +96,18 @@ require([
 
         // Now everything has loaded the form can be enabled
         elements.generate.erase('disabled');
+
+        // Fetch the data in the hash
+        hash = window.location.hash.substr(1).split(',');
+
+        // If there are three values then there was data there, use it
+        // We use it by populating the form and submitting it
+        if(hash.length === 3) {
+            elements.width.set('value', hash[0]);
+            elements.columns.set('value', hash[1]);
+            elements.margin.set('value', hash[2]);
+            elements.form.fireEvent('submit');
+        }
     }
 
     // Add a listener for the DOM ready event
