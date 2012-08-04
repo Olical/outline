@@ -75,38 +75,12 @@ a:hover {
     margin-top: 1em;
 }
 
-.label, .button, .textbox {
+.label {
     display: block;
 }
 
 .textbox {
     display: block;
-    background-color: #3D3D3F;
-    border: 1px solid #020304;
-    border-radius: 3px;
-    color: #999999;
-    
-    transition: ease 300ms;
-    transition-property: background, color;
-}
-
-.textbox:focus {
-    background-color: #626266;
-    color: #FFFFFF;
-}
-
-.generate-button {
-    border: 1px solid #000000;
-    background-color: #541F14;
-    color: #EEEEEE;
-    display: block;
-    padding: 8px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-shadow: 1px 1px #000000;
-    transition: ease 300ms background;
-}
-
-.generate-button:hover {
-    background-color: #722A1B;
+    width: 64px;
+    font-size: 16px;
 }
