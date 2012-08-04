@@ -8,7 +8,7 @@ requirejs.config({
 
 require([
     'CSSGrid',
-    'text!/assets/templates/grid.dust',
+    'text!../templates/grid.dust',
     'mootools-core',
     'prism',
     'dust'
