@@ -79,7 +79,11 @@ require([
         });
 
         // When the download is clicked serve up the download
-        elements.download.addEvent('click', function() {
+        elements.download.addEvent('click', function(e) {
+            // Stop the link doing anything
+            e.stop();
+
+            // Redirect to the download
             window.location = download;
         });
 
