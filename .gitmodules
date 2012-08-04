@@ -13,3 +13,6 @@
 [submodule "assets/js/prefixfree"]
 	path = assets/js/prefixfree
 	url = git://github.com/LeaVerou/prefixfree.git
+[submodule "assets/css/normalize"]
+	path = assets/css/normalize
+	url = git://github.com/necolas/normalize.css.git
