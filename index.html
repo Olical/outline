@@ -4,6 +4,7 @@
         <title>Outline - CSS grid generator</title>
         <meta charset='utf-8'>
 
+        <!-- 
         <script type='text/javascript'>
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-29131116-1']);
@@ -15,6 +16,7 @@
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
+        -->
 
         <script type='text/javascript' src='/assets/js/html5shiv/dist/html5shiv.js'></script>
 
@@ -30,24 +32,26 @@
     <body>
         <div class='container'>
             <div class='wrapper span-10 prefix-1 suffix-1 last'>
-                <div class='row'>
-                    <div class='span-4 last'>
-                        <h2>Outline is a tool that generates robust CSS grids to your exact specifications.</h2>
-                    </div>
-
-                    <div class='span-4 last'>
+                <div class='row header'>
+                    <div class='span-4 prefix-6 last'>
                         <h1><a href='/'><img src='/assets/images/logo.png' alt='Outline'></a></h1>
+                    </div>
+                </div>
+
+                <div class='row description'>
+                    <div class='span-5'>
+                        <h2>Outline is a tool that generates robust CSS grids to your exact specification.</h2>
                     </div>
                 </div>
 
                 <div class='row'>
                     <div class='span-4'>
                         <p>To get going simply fill in the form to the right and hit generate. It works best if your width can divide by your column count and your margin width is a multiple of your column count.</p>
-                        <p>A good example would be 960px width, 16 columns and 32px margin. You could swap to 12 columns but your margin would need to change to a multiple of 12, 24px for example.</p>
+                        <p>A good example would be 960px width, 16 columns and 32px margin. You could swap to 12 columns but your margin would need to change to a multiple of 12, such as 24px.</p>
                     </div>
 
                     <div class='span-3'>
-                        <p>If you do not meet these guidelines then you will get decimal widths (126.3 for example) which may mess up in some old browsers. This is because <a href='http://ejohn.org/blog/sub-pixel-problems-in-css/'>browsers round differently</a>.</p>
+                        <p>If you do not meet these guidelines then you will get decimal widths (126.3, 50.89, 90.324) which may mess up in some old browsers. This is because <a href='http://ejohn.org/blog/sub-pixel-problems-in-css/'>browsers round differently</a>.</p>
                         <p>Your generated grid will be displayed below. All you have to do then is copy and paste it into a file or save the target of the download button.</p>
                     </div>
 

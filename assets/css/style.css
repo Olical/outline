@@ -31,6 +31,12 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Rows */
+.description {
+    position: relative;
+    margin-top: -100px;
+}
+
 /* Content wrapper */
 .wrapper {
     /*
