@@ -50,22 +50,23 @@
                         <p>A good example would be 960px width, 16 columns and 32px margin. You could swap to 12 columns but your margin would need to change to a multiple of 12, such as 24px.</p>
                     </div>
 
-                    <div class='span-3'>
+                    <div class='span-3 bordered'>
                         <p>If you do not meet these guidelines then you will get decimal widths (126.3, 50.89, 90.324) which may mess up in some old browsers. This is because <a href='http://ejohn.org/blog/sub-pixel-problems-in-css/'>browsers round differently</a>.</p>
                         <p>Your generated grid will be displayed below. All you have to do then is copy and paste it into a file or save the target of the download button.</p>
                     </div>
 
-                    <div class='span-3 last'>
-                        <form id='form'>
-                            <input type='text' id='width' placeholder='Grid width in pixels (960)'>
-                            <br>
-                            <input type='text' id='columns' placeholder='Number of columns (16)'>
-                            <br>
-                            <input type='text' id='margin' placeholder='Margin width in pixels (32)'>
-                            <br>
-                            <input type='submit' id='generate' value='Generate' disabled>
-                        </form>
-                    </div>
+                    <form id='form' class='span-3 last'>
+                        <label for='width' class='label'>Width (Example: 960, 1140)</label>
+                        <input type='text' id='width' class='textbox'>
+
+                        <label for='columns' class='label'>Columns (Example: 12, 16)</label>
+                        <input type='text' id='columns' class='textbox'>
+
+                        <label for='margin' class='label'>Margin (Example: 24, 32)</label>
+                        <input type='text' id='margin' class='textbox'>
+
+                        <input type='submit' id='generate' value='Generate' class='button generate-button' disabled>
+                    </form>
                 </div>
 
                 <div class='row'>
