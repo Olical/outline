@@ -10,3 +10,6 @@
 [submodule "assets/js/html5shiv"]
 	path = assets/js/html5shiv
 	url = git://github.com/aFarkas/html5shiv.git
+[submodule "assets/js/prefixfree"]
+	path = assets/js/prefixfree
+	url = git://github.com/LeaVerou/prefixfree.git
