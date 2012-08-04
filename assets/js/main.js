@@ -38,7 +38,8 @@ require([
             margin: $('margin'),
             output: $('output'),
             generate: $('generate'),
-            download: $('download')
+            download: $('download'),
+            placeholder: $('placeholder')
         };
 
         // Listen for when the form is submitted
@@ -63,6 +64,9 @@ require([
                     if(err) {
                         throw err;
                     }
+
+                    // Hide the placeholder text
+                    elements.placeholder.addClass('hidden');
 
                     // Display the output and highlight it
                     elements.output.set('text', css);
