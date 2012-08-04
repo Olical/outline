@@ -7,3 +7,6 @@
 [submodule "assets/js/dust"]
 	path = assets/js/dust
 	url = git://github.com/akdubya/dustjs.git
+[submodule "assets/js/html5shiv"]
+	path = assets/js/html5shiv
+	url = git://github.com/aFarkas/html5shiv.git
