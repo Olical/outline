@@ -8,7 +8,7 @@ body {
         Using a background from Subtle Patterns: http://subtlepatterns.com/diamond-upholstery/
         I set the background colour to something found in the image to make it seem to be loading faster.
     */
-    background: #EBEBEB url('./assets/images/diamonds.png');
+    background: #EBEBEB url('../images/diamonds.png');
 
     /*
         This will cascade the default font styles down the document.
