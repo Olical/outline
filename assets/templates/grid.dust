@@ -18,21 +18,18 @@
 }
 
 {#spans}{cssClass} { width: {width}; }{~n}{/spans}
-
 /*
     Prefix classes specify how many empty columns there should be before the element.
 
         <div class='span-4 prefix-2'>...</div>
 */
-{#prefixes}{cssClass} { padding-left: {padding}; }{~n}{/prefixes}}
-
+{#prefixes}{cssClass} { padding-left: {padding}; }{~n}{/prefixes}
 /*
     Suffix classes specify how many empty columns there should be after the element.
 
         <div class='span-4 suffix-2'>...</div>
 */
-{#suffixes}{cssClass} { padding-right: {padding}; }{~n}{/suffixes}}
-
+{#suffixes}{cssClass} { padding-right: {padding}; }{~n}{/suffixes}
 /*
     The container is used to set your grid width and center your columns.
 
