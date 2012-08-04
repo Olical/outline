@@ -42,7 +42,8 @@ require([
             generate: $('generate'),
             download: $('download'),
             placeholder: $('placeholder'),
-            share: $('share')
+            share: $('share'),
+            controls: $('controls')
         };
 
         // Listen for when the form is submitted
@@ -79,7 +80,7 @@ require([
 
                     // Prepare the download and show the link
                     elements.download.set('href', 'data:text/css;charset=utf-8;base64,' + btoa(css));
-                    elements.download.removeClass('hidden');
+                    elements.controls.removeClass('hidden');
 
                     // Set the hash
                     window.location.hash = config.width + ',' + config.columns + ',' + config.margin;
