@@ -79,7 +79,7 @@ define([
         // Set the last span
         context.lastSpan = context.spans[opts.columns - 1];
 
-        // Execute the renderer
+        // Render the template
         template(context, callback);
     };
 
