@@ -42,7 +42,8 @@ require([
             generate: $('generate'),
             download: $('download'),
             placeholder: $('placeholder'),
-            share: $('share')
+            share: $('share'),
+            controls: $('controls')
         };
 
         // Listen for when the form is submitted
@@ -63,6 +64,11 @@ require([
                 // Set up a grid renderer
                 grid.setOptions(config);
 
+                // Set the hash
+                // This is done before the grid is rendered
+                // So now the URL with the hash on the end can be in the file
+                window.location.hash = config.width + ',' + config.columns + ',' + config.margin;
+
                 // Render the CSS
                 grid.render(template, function(err, css) {
                     // Log any errors
@@ -79,10 +85,7 @@ require([
 
                     // Prepare the download and show the link
                     elements.download.set('href', 'data:text/css;charset=utf-8;base64,' + btoa(css));
-                    elements.download.removeClass('hidden');
-
-                    // Set the hash
-                    window.location.hash = config.width + ',' + config.columns + ',' + config.margin;
+                    elements.controls.removeClass('hidden');
 
                     // And set the share URL
                     loc = document.location;
