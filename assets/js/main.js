@@ -22,8 +22,8 @@ require([
     var grid = new CSSGrid(),
         template = dust.compileFn(templateSource),
         config = {},
-        css,
-        elements;
+        elements,
+        download;
 
     /**
      * Entry point for the application
@@ -37,7 +37,8 @@ require([
             columns: $('columns'),
             margin: $('margin'),
             output: $('output'),
-            generate: $('generate')
+            generate: $('generate'),
+            download: $('download')
         };
 
         // Listen for when the form is submitted
@@ -66,11 +67,20 @@ require([
                     // Display the output and highlight it
                     elements.output.set('text', css);
                     Prism.highlightElement(elements.output);
+
+                    // Prepare the download and show the link
+                    download = 'data:text/css;charset=utf-8;base64,' + btoa(css);
+                    elements.download.removeClass('hidden');
                 });
             }
             else {
                 alert('Please specify a number in each input.');
             }
+        });
+
+        // When the download is clicked serve up the download
+        elements.download.addEvent('click', function() {
+            window.location = download;
         });
 
         // Now everything has loaded the form can be enabled
