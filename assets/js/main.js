@@ -27,10 +27,14 @@ require([
                 generate: $('generate')
             },
             grid = new CSSGrid(),
-            config = {};
+            config = {},
+            css;
 
         // Listen for when the form is submitted
-        elements.form.addEvent('submit', function() {
+        elements.form.addEvent('submit', function(e) {
+            // Stop the form actually submitting
+            e.stop();
+
             // Extract the data
             config.width = elements.width.get('value').toInt();
             config.columns = elements.columns.get('value').toInt();
@@ -42,18 +46,16 @@ require([
                 // Set up a grid renderer
                 grid.setOptions(config);
 
-                // Render the CSS into the output
-                elements.output.set('text', grid.render(gridTemplate));
+                // Render the CSS
+                css = grid.render(gridTemplate);
 
-                // Highlight the code
+                // Display the output and highlight it
+                elements.output.set('text', css);
                 Prism.highlightElement(elements.output);
             }
             else {
                 alert('Please specify a number in each input.');
             }
-
-            // Stop the form actually submitting
-            return false;
         });
 
         // Now everything has loaded the form can be enabled

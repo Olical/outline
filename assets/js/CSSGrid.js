@@ -10,14 +10,15 @@ define([
     /**
      * If passed an options object this constructor will call setOptions automatically
      * 
-     * @param {Object} options Optional configuration object of three values: width, columns and margin
+     * @param {Object} options Optional configuration object of four values: width, columns, margin and gridFill (for the overlay image)
      */
     CSSGrid.fn.construct = function(options) {
         // Set the default options
         this.setOptions({
             width: 960,
             columns: 16,
-            margin: 32
+            margin: 32,
+            gridFill: 'rgba(239, 95, 95, 0.4)'
         });
 
         // If any options were passed then call set options
@@ -36,8 +37,7 @@ define([
     CSSGrid.fn.render = function(template) {
         // Initialise the variables
         var opts = this.options,
-            usableWidth = opts.width - (opts.margin * (opts.columns - 1)),
-            columnWidth = usableWidth / opts.columns,
+            columnWidth = this.getColumnWidth(),
             fullColumnWidth = columnWidth + opts.margin,
             view = {
                 width: opts.width + 'px',
@@ -45,7 +45,9 @@ define([
                 margin: opts.margin + 'px',
                 spans: [],
                 prefixes: [],
-                suffixes: []
+                suffixes: [],
+                overlay: this.renderImage(columnWidth, opts.margin),
+                url: document.location
             },
             i;
 
@@ -80,6 +82,42 @@ define([
 
         // Return the render
         return mustache.render(template, view);
+    };
+
+    /**
+     * Calculates the column width
+     *
+     * @returns {Number} The current column width
+     */
+    CSSGrid.fn.getColumnWidth = function() {
+        var opts = this.options,
+            usableWidth = opts.width - (opts.margin * (opts.columns - 1));
+
+        return usableWidth / opts.columns;
+    };
+
+    /**
+     * Renders a base64 image of the grid
+     * It can be used as a repeating background
+     *
+     * @param {Number} width The width of each column
+     * @param {Number} margin The width of the right margin
+     * @returns {String} Base64 encoded image to be used as a grid overlay
+     */
+    CSSGrid.fn.renderImage = function(width, margin) {
+        // Initialise variables
+        var canvas = new Element('canvas', {
+                height: 1,
+                width: width + margin
+            }),
+            ctx = canvas.getContext('2d');
+
+        // Draw the column
+        ctx.fillStyle = this.options.gridFill;
+        ctx.fillRect(0, 0, width, 1);
+
+        // Return the render of the canvas
+        return canvas.toDataURL();
     };
 
     // Return the finished class
