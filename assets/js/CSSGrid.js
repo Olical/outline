@@ -1,8 +1,7 @@
 define([
     'Class',
-    'mustache',
     'mootools-core'
-], function(Class, mustache) {
+], function(Class) {
     // Initialise the class
     // Implements MooTools' Options class
     var CSSGrid = new Class(Options);
@@ -31,15 +30,15 @@ define([
      * Renders the CSS grid using the current options
      * You must pass it a template string to render with
      * 
-     * @param {String} template The mustache template to render with
-     * @returns {String} Your finished CSS grid
+     * @param {String} template The dust template to render with
+     * @param {Function} callback The callback to run when rendering has finished
      */
-    CSSGrid.fn.render = function(template) {
+    CSSGrid.fn.render = function(template, callback) {
         // Initialise the variables
         var opts = this.options,
             columnWidth = this.getColumnWidth(),
             fullColumnWidth = columnWidth + opts.margin,
-            view = {
+            context = {
                 width: opts.width + 'px',
                 columns: opts.columns,
                 margin: opts.margin + 'px',
@@ -54,7 +53,7 @@ define([
         // Loop over all of the columns
         for(i = 1; i <= opts.columns; i += 1) {
             // Generate spans
-            view.spans.push({
+            context.spans.push({
                 cssClass: '.span-' + i,
                 width: columnWidth + fullColumnWidth * (i - 1) + 'px',
                 separator: i < opts.columns ? ',\n' : ''
@@ -65,12 +64,12 @@ define([
             if(i < opts.columns) {
                 var padding = fullColumnWidth * i + 'px';
 
-                view.prefixes.push({
+                context.prefixes.push({
                     cssClass: '.prefix-' + i,
                     padding: padding
                 });
 
-                view.suffixes.push({
+                context.suffixes.push({
                     cssClass: '.suffix-' + i,
                     padding: padding
                 });
@@ -78,10 +77,10 @@ define([
         }
 
         // Set the last span
-        view.lastSpan = view.spans[opts.columns - 1];
+        context.lastSpan = context.spans[opts.columns - 1];
 
-        // Return the render
-        return mustache.render(template, view);
+        // Execute the renderer
+        template(context, callback);
     };
 
     /**

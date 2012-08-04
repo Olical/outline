@@ -4,3 +4,6 @@
 [submodule "assets/js/text"]
 	path = assets/js/text
 	url = git://github.com/requirejs/text.git
+[submodule "assets/js/dust"]
+	path = assets/js/dust
+	url = git://github.com/akdubya/dustjs.git
