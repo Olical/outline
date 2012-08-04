@@ -69,22 +69,13 @@ require([
                     Prism.highlightElement(elements.output);
 
                     // Prepare the download and show the link
-                    download = 'data:text/css;charset=utf-8;base64,' + btoa(css);
+                    elements.download.set('href', 'data:text/css;charset=utf-8;base64,' + btoa(css));
                     elements.download.removeClass('hidden');
                 });
             }
             else {
                 alert('Please specify a number in each input.');
             }
-        });
-
-        // When the download is clicked serve up the download
-        elements.download.addEvent('click', function(e) {
-            // Stop the link doing anything
-            e.stop();
-
-            // Redirect to the download
-            window.location = download;
         });
 
         // Now everything has loaded the form can be enabled
