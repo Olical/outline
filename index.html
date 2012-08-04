@@ -14,18 +14,40 @@
     </head>
 
     <body>
-        <form id='form'>
-            <input type='text' id='width' placeholder='Grid width in pixels (960)'>
-            <br>
-            <input type='text' id='columns' placeholder='Number of columns (16)'>
-            <br>
-            <input type='text' id='margin' placeholder='Margin width in pixels (32)'>
-            <br>
-            <input type='submit' id='generate' value='Generate' disabled>
-        </form>
+        <div class='container'>
+            <div class='wrapper'>
+                <div class='row header'>
+                    <div class='span-4'>
+                        <h1><a href='/'>Outline</a></h1>
+                    </div>
 
-        <p><a href='#' class='hidden' id='download'>Download</a></p>
-        <pre><code id='output' class='language-css'></code></pre>
+                    <div class='span-4'>
+                        <p>Outline is a tool that generates robust CSS grids to your exact specifications.</p>
+                        <p>To get going simply fill in the form to the right and hit render. It works best if your width can divide by your column count and your margin width is a multiple of your column count.</p>
+                        <p>If you do not meet these guidelines then you will get decimal widths (126.3 for example) which may mess up in some old browsers. This is because <a href='http://ejohn.org/blog/sub-pixel-problems-in-css/'>browsers round differently</a>.</p>
+                    </div>
+
+                    <div class='span-4 last'>
+                        <form id='form'>
+                            <input type='text' id='width' placeholder='Grid width in pixels (960)'>
+                            <br>
+                            <input type='text' id='columns' placeholder='Number of columns (16)'>
+                            <br>
+                            <input type='text' id='margin' placeholder='Margin width in pixels (32)'>
+                            <br>
+                            <input type='submit' id='generate' value='Generate' disabled>
+                        </form>
+                    </div>
+                </div>
+
+                <div class='row render'>
+                    <div class='span-10 prefix-1 suffix-1 last'>
+                        <p><a href='#' class='hidden' id='download'>Download</a></p>
+                        <pre><code id='output' class='language-css'></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script type='text/javascript' src='/assets/js/requirejs/require.js' data-main='/assets/js/main'></script>
     </body>

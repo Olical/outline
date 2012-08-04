@@ -1,3 +1,28 @@
+/* Page */
+body {
+    /*
+        Using a background from Subtle Patterns: http://subtlepatterns.com/diamond-upholstery/
+        I set the background colour to something found in the image to make it seem to be loading faster.
+    */
+    background: #EBEBEB url('/assets/images/diamonds.png');
+}
+
+/* Content wrapper */
+.wrapper {
+    /*
+        This wrapper floats left inside the container to stretch to the height of the rows.
+        So I can set a background and it will cover all rows height.
+        You can't do this with the container because it is not floated.
+    */
+    float: left;
+
+    /*
+        This sets a semi-transparent background colour which falls back to a similar solid colour in older browsers.
+    */
+    background: #F7F7F7;
+    background: rgba(255, 255, 255, 0.6);
+}
+
 /* Helpers */
 .hidden {
     display: none;
