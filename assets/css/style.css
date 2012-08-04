@@ -73,6 +73,7 @@ a:hover {
 .footer {
     text-align: right;
     border-top: 2px solid #626266;
+    margin-top: 20px;
 }
 
 /* Forms */
